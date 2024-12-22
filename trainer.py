@@ -16,7 +16,7 @@ from utils import DiceLoss
 from torchvision import transforms
 
 def trainer_acdc(args, model, snapshot_path):
-    from datasets.dataset_acdc import BaseDataSets, RandomGenerator
+    from dataset_acdc import BaseDataSets, RandomGenerator
     base_lr = args.base_lr
     num_classes = args.num_classes
     batch_size = args.batch_size
