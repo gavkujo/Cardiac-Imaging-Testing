@@ -124,7 +124,8 @@ if __name__ == "__main__":
             'z_spacing': 5,
             'info': '3D'
         },
-        '''
+    }
+    '''
         'Synapse': {
             'Dataset': Synapse_dataset,
             'volume_path': '../data/Synapse/test_vol_h5',
@@ -132,8 +133,7 @@ if __name__ == "__main__":
             'num_classes': 9,
             'z_spacing': 1,
         },
-        '''
-    }
+    '''
     dataset_name = args.dataset
     args.num_classes = dataset_config[dataset_name]['num_classes']
     args.volume_path = dataset_config[dataset_name]['volume_path']
