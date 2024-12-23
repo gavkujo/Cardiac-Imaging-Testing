@@ -27,8 +27,8 @@ def trainer_acdc(args, model, snapshot_path):
     db_val = BaseDataSets(base_dir=args.root_path, split="val")
 
     #addition for testloader
-    db_test = BaseDataSets(base_dir=args.root_path, split="test")
-    testloader = DataLoader(db_test, batch_size=1, shuffle=False, num_workers=1)
+    #db_test = BaseDataSets(base_dir=args.root_path, split="test")
+    #testloader = DataLoader(db_test, batch_size=1, shuffle=False, num_workers=1)
     #end
 
     def worker_init_fn(worker_id):
@@ -46,7 +46,7 @@ def trainer_acdc(args, model, snapshot_path):
     writer = SummaryWriter(snapshot_path + '/log')
     logging.info("{} iterations per epoch".format(len(trainloader)))
     logging.info("{} val iterations per epoch".format(len(valloader)))
-    logging.info("{} test iterations per epoch".format(len(testloader)))
+    #logging.info("{} test iterations per epoch".format(len(testloader)))
 
     iter_num = 0
     max_epoch = max_iterations // len(trainloader) + 1
