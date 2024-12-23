@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     dataset_config = {
         'ACDC': {
-            'Dataset': ACDC,  # datasets.dataset_acdc.BaseDataSets,
+            'Dataset': 'ACDC',  # datasets.dataset_acdc.BaseDataSets,
             'volume_path': './data/ACDC',
             'list_dir': None,
             'num_classes': 4,
