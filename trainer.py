@@ -25,6 +25,12 @@ def trainer_acdc(args, model, snapshot_path):
     db_train = BaseDataSets(base_dir=args.root_path, split="train", transform=transforms.Compose([
         RandomGenerator([args.img_size, args.img_size])]))
     db_val = BaseDataSets(base_dir=args.root_path, split="val")
+
+    #addition for testloader
+    db_test = BaseDataSets(base_dir=args.root_path, split="test")
+    testloader = DataLoader(db_test, batch_size=1, shuffle=False, num_workers=1)
+    #end
+
     def worker_init_fn(worker_id):
         random.seed(args.seed + worker_id)
     trainloader = DataLoader(db_train, batch_size=batch_size, shuffle=True,
