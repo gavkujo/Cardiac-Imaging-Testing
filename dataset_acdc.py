@@ -21,6 +21,7 @@ class BaseDataSets(Dataset):
         self.transform = transform
         train_ids, val_ids, test_ids = self._get_ids()
         if self.split.find('train') != -1:
+            print(f"Looking for slices in: {os.path.abspath('./data/ACDC_training_slices')}")
             self.all_slices = os.listdir(
                 self._base_dir + "/ACDC_training_slices")
             self.sample_list = []
