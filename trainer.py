@@ -14,6 +14,8 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from utils import DiceLoss, test_single_volume
 from torchvision import transforms
+import multiprocessing
+num_workers = min(4, multiprocessing.cpu_count() - 1)
 
 def trainer_acdc(args, model, snapshot_path):
     from dataset_acdc import BaseDataSets, RandomGenerator
@@ -34,9 +36,9 @@ def trainer_acdc(args, model, snapshot_path):
     def worker_init_fn(worker_id):
         random.seed(args.seed + worker_id)
     trainloader = DataLoader(db_train, batch_size=batch_size, shuffle=True,
-                             num_workers=8, pin_memory=True, worker_init_fn=worker_init_fn)
+                             num_workers=num_workers, pin_memory=True, worker_init_fn=worker_init_fn)
     valloader = DataLoader(db_val, batch_size=1, shuffle=False,
-                           num_workers=1)
+                           num_workers=max(1, num_workers // 2))
     model.train()
     optimizer = optim.SGD(model.parameters(), lr=base_lr,
                           momentum=0.9, weight_decay=0.0001)
