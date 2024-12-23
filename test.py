@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 #from datasets.dataset_synapse import Synapse_dataset
 #try:
-    #from datasets.dataset_acdc import BaseDataSets as ACDC_dataset
+from dataset_acdc import BaseDataSets as ACDC_dataset
 #except:
     #pass
 from utils import test_single_volume
