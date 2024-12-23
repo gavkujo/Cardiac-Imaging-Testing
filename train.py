@@ -58,7 +58,7 @@ if __name__ == "__main__":
     dataset_config = {
         'ACDC': {
             #'Dataset': ACDC_dataset,  # datasets.dataset_acdc.BaseDataSets,
-            'root_path': './data',
+            'root_path': './data/ACDC',
             'list_dir': None,
             'num_classes': 4,
         },
