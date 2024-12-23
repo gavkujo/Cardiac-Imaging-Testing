@@ -12,7 +12,7 @@ from tensorboardX import SummaryWriter
 from torch.nn.modules.loss import CrossEntropyLoss
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from utils import DiceLoss
+from utils import DiceLoss, test_single_volume
 from torchvision import transforms
 
 def trainer_acdc(args, model, snapshot_path):
